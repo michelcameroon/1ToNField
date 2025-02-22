@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Presence</title>
+</head>
+<body>
+    <h1>Students</h1>
+    <form action="{{ url_for('add_student') }}" method="post">
+        <input type="text" name="name" placeholder="Student Name" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.name }}
+                <form action="{{ url_for('add_presence', student_id=student.id) }}" method="post" style="display:inline;">
+                    <input type="date" name="date" required>
+                    <select name="status" required>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                    <button type="submit">Add Presence</button>
+                </form>
+                <ul>
+                    {% for presence in student.presences %}
+                        <li>{{ presence.date }} - {{ presence.status }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

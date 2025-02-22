@@ -1,0 +1,65 @@
+  GNU nano 7.2                templates/index.html-save *                       
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>1Tb Records</h1>
+    
+
+    
+    <h2>Create a new 1Tb record</h2>
+    <form method="POST">
+    <table border="1">
+
+       <tr>
+
+           <div class="mb-3">
+      {% for tFNoId in tFNoIds %}
+
+          <td>
+
+                <label for="{{ tFNoId }}" class="form-label">{{ tFNoId.capitalize() }}</label>
+                </td>
+                <td>
+                 <input type="text" class="form-control" id="{{ tFNoId }}" name="{{ tFNoId }}" required>
+
+
+          </td>
+      {% endfor %}
+        <td>
+        <button type="submit">Create</button>
+
+        </td>
+</tr>
+</table>
+
+    <ul>
+        {% for record in records %}
+        <li>
+               {% for tFNoId in tFNoIds %}
+
+                        {{ record[tFNoId] }}
+
+
+               {% endfor %}
+       </li>
+
+            <a href="{{ url_for('nrelations', one_tb_id=record.id) }}"> nTb Relation</a>
+        </li>
+
+
+        {% endfor %}
+
+
+
+
+
+    <ul>
+
+
+
+</body>
+</html>

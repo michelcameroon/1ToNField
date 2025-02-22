@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>1Tb Records</h1>
+      <tr>
+
+    <!-- Form to create a new 1Tb record -->
+    <h2>Create a new 1Tb record</h2>
+    <form method="POST">
+<table border="1">
+<!--
+      {% for tfieldNamesNoId in tfieldNamesNoIds %}
+-->
+       <tr>
+          <td>
+
+           <div class="mb-3">
+      {% for tFieldNamesNoId in tFieldNamesNoIds %}
+
+                <label for="{{ tfieldNamesNoId }}" class="form-label">{{ tfieldNamesNoId.capitalize() }}</label>
+                </td>
+                <td>
+                 <input type="text" class="form-control" id="{{ tfieldNamesNoId }}" name="{{ tfieldNamesNoId }}" required>
+      {% endfor %}
+
+</td>
+</tr>
+</table>
+           </div>
+   
+
+      <!--
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      -->
+        <button type="submit">Create</button>
+ </table>
+    </form>
+
+    <!-- List all 1Tb records -->
+<!--
+    <h2>Existing 1Tb Records</h2>
+    <ul>
+        <li>
+        {% for record in records %}
+               {% for tFieldNamesNoId in tFieldNamesNoIds %}
+
+                        {{ record[tFieldNamesNoId] }}
+
+
+               {% endfor %}
+        {% endfor %}
+          
+    <ul>
+
+
+           {% for nrelation in nrelations %}
+ccc
+             bbb
+        <li>
+               {% for ntFieldNamesNoId in ntFieldNamesNoIds %}
+
+ddd
+                        {{ nrelation[ntFieldNamesNoId] }}
+                        
+
+               {% endfor %}
+ 
+
+              {{ nrelation.price }}
+        </li>
+              {% endfor %}
+       </ul>
+
+            <a href="{{ url_for('nrelations', one_tb_id=record.id) }}">Add nTb Relation</a>
+        </li>
+        <li>No records found. Create one above!</li>
+    </ul>
+-->
+
+
+</body>
+</html>
