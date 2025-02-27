@@ -21,33 +21,31 @@
 
           <td>
 
-                <label for="{{ tFNoId }}" class="form-label">{{ tFNoId.capitalize() }}</label>
-                </td>
-                <td>
-                 <input type="text" class="form-control" id="{{ tFNoId }}" name="{{ tFNoId }}" required>
-
-
+              <label for="{{ tFNoId }}" class="form-label">{{ tFNoId.capitalize() }}</label>
+          </td>
+          <td>
+              <input type="text" class="form-control" id="{{ tFNoId }}" name="{{ tFNoId }}" required>
           </td>
       {% endfor %}
-        <td>
-        <button type="submit">Create</button>
+          <td>
+              <button type="submit">Create</button>
 
-        </td>
-</tr>
-</table>
+          </td>
+        </tr>
+    </table>
 
     <ul>
         {% for record in records %}
-        <li>
-               {% for tFNoId in tFNoIds %}
+            <li>
+                {% for tFNoId in tFNoIds %}
 
-                        {{ record[tFNoId] }}
+                    {{ record[tFNoId] }}
 
 
-               {% endfor %}
-       </li>
+                {% endfor %}
+       
 
-            <a href="{{ url_for('nrelations', one_tb_id=record.id) }}"> nTb Relation</a>
+           <a href="{{ url_for('nrelations', one_tb_id=record.id) }}"> nTb Relation</a>
         </li>
 
 
