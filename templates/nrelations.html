@@ -26,13 +26,19 @@
              <tr>
                  <td>
                  <div class="mb-3">
+                      {% if  fieldNamesNoId == 'one_id'  %}
 
+                         <input type="hidden" class="form-control" id="{{ fieldNamesNoId }}" name="{{ fieldNamesNoId }}" value={{ one_tb_id }}>
+
+                      {% else %}                           
 
                      <label for="{{ fieldNamesNoId }}" class="form-label">{{ fieldNamesNoId.capitalize() }}</label>
                  </td>
                  <td>
                      <input type="text" class="form-control" id="{{ fieldNamesNoId }}" name="{{ fieldNamesNoId }}" >
                  </td>
+                      {% endif %}
+
            </div>
            </tr>
 
