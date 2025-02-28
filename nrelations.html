@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> nTb Relations </title>
+</head>
+<body>
+    <h1> nTb Relations for 1Tb ID: {{ one_tb_id }}</h1>
+
+
+        {% for nrelation in nrelations %}
+
+            {% for fieldNamesNoId in fieldNamesNoIds %}
+
+                   {{ fieldNamesNoId }} : {{ nrelation[fieldNamesNoId] }}                   
+    
+            {% endfor %}
+            <br>
+        {% endfor %}
+
+     <h2> new relation </h2>
+
+     <form method="POST">
+         <table border="1">
+             {% for fieldNamesNoId in fieldNamesNoIds %}
+             <tr>
+                 <td>
+                 <div class="mb-3">
+
+
+                     <label for="{{ fieldNamesNoId }}" class="form-label">{{ fieldNamesNoId.capitalize() }}</label>
+                 </td>
+                 <td>
+                     <input type="text" class="form-control" id="{{ fieldNamesNoId }}" name="{{ fieldNamesNoId }}" >
+                 </td>
+           </div>
+           </tr>
+
+            {% endfor %}
+
+       
+            <tr>
+                <td>
+
+                    <button type="submit">Add</button>
+                </td>
+          </tr>
+
+      </table>
+      
+    <a href="../"> index</a>
+
+    </form>
+</body>
+</html>
